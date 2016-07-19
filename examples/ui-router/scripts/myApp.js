@@ -50,7 +50,7 @@ myApp.config(function($stateProvider, $urlRouterProvider, $httpProvider,
   // want to check the delegation-token example
   $httpProvider.interceptors.push('jwtInterceptor');
 }).run(function($rootScope, auth, store, jwtHelper, $state) {
-  $rootScope.$on('$locationChangeStart', function() {
+  $rootScope.$on('$stateChangeStart', function() {
     if (!auth.isAuthenticated) {
       var token = store.get('token');
       if (token) {
